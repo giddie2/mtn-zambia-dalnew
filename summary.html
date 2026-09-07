@@ -459,9 +459,7 @@
     <script>
         // Retrieve stored data
         const summaryBox = document.getElementById('summaryBox');
-        const loanAmount = localStorage.getItem('loanAmount') || '5000';
-        const formattedAmount = parseFloat(loanAmount).toLocaleString('en-US');
-        const termDays = localStorage.getItem('loanTerm') || '30';
+        const termDays = localStorage.getItem('loanTerm') || '90';
 
         let loanTypeDisplay = localStorage.getItem('loanType') || 'MTN Loans';
         if (!loanTypeDisplay.includes('MTN')) loanTypeDisplay = 'MTN Loans';
@@ -475,9 +473,7 @@
 
         summaryBox.innerHTML = `
                 <div class="summary-row"><span>Credit product:</span><span class="summary-value">${loanTypeDisplay}</span></div>
-                <div class="summary-row"><span>Amount requested:</span><span class="summary-value">ZMW ${formattedAmount}</span></div>
                 <div class="summary-row"><span>Duration:</span><span class="summary-value">${termDays} days</span></div>
-                <div class="summary-row"><span>Purpose:</span><span class="summary-value">${localStorage.getItem('loanPurpose') || 'General expenses'}</span></div>
                 <div class="summary-row"><span>Applicant:</span><span class="summary-value">${localStorage.getItem('firstName') || ''} ${localStorage.getItem('lastName') || ''}</span></div>
                 <div class="summary-row"><span>Email:</span><span class="summary-value">${localStorage.getItem('email') || 'N/A'}</span></div>
                 <div class="summary-row"><span>MTN MoMo Number:</span><span class="summary-value">${phone}</span></div>
